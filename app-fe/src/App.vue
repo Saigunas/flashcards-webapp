@@ -1,8 +1,8 @@
 <script setup>
   import { ref } from "vue";
   import Home from "./components/Home.vue"
-  // import Login from "./components/Login.vue"
-  // import Register from "./components/Register.vue"
+  import Login from "./components/Login.vue"
+  import Register from "./components/Register.vue"
   import About from "./components/About.vue"
 
   let activeTab = ref('Home');
@@ -26,10 +26,10 @@
     <a @click="activeTab = 'About'" class="nav-item nav-link" href="#"><i class="bi bi-info-circle-fill me-2"></i>About</a>
   </div>
 </div>
-  <!-- <div class="navbar-nav mx-4 ml-auto">
+  <div class="navbar-nav mx-4 ml-auto">
     <a @click="activeTab = 'Login'" class="loginMenu nav-item nav-link" href="#"><i class="bi bi-info-circle-fill me-2"></i>Login</a>
     <a @click="activeTab = 'Register'" class="loginMenu nav-item nav-link" href="#"><i class="bi bi-info-circle-fill me-2"></i>Register</a>
-</div> -->
+</div>
       
     </nav>
     
@@ -40,10 +40,10 @@
     <div v-if="activeTab === 'Something'">
       Something
     </div>
-<!-- 
+
     <Login v-if="activeTab === 'Login'"/>
     
-    <Register v-if="activeTab === 'Register'"/> -->
+    <Register v-if="activeTab === 'Register'"/>
 
     <About v-if="activeTab === 'About'"/>
 
