@@ -1,9 +1,14 @@
 <script setup>
   import { ref } from "vue";
   import Home from "./components/Home.vue"
+  // import Login from "./components/Login.vue"
+  // import Register from "./components/Register.vue"
+  // import About from "./components/About.vue"
 
   let activeTab = ref('Home');
+
 </script>
+
 
 <template>
   <div id="app-body">
@@ -14,24 +19,34 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a @click="activeTab = 'Home'" class="nav-item nav-link active" href="#"><i class="bi bi-house-door-fill me-2"></i>Home</a>
-          <a @click="activeTab = 'Something'" class="nav-item nav-link" href="#"><i class="bi bi-bar-chart-line-fill me-2"></i>Something</a>
-          <a @click="activeTab = 'About'" class="nav-item nav-link" href="#"><i class="bi bi-info-circle-fill me-2"></i>About</a>
-        </div>
-      </div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="navbar-nav">
+    <a @click="activeTab = 'Home'" class="nav-item nav-link active" href="#"><i class="bi bi-house-door-fill me-2"></i>Home</a>
+    <a @click="activeTab = 'Something'" class="nav-item nav-link" href="#"><i class="bi bi-bar-chart-line-fill me-2"></i>Something</a>
+    <a @click="activeTab = 'About'" class="nav-item nav-link" href="#"><i class="bi bi-info-circle-fill me-2"></i>About</a>
+  </div>
+</div>
+  <!-- <div class="navbar-nav mx-4 ml-auto">
+    <a @click="activeTab = 'Login'" class="loginMenu nav-item nav-link" href="#"><i class="bi bi-info-circle-fill me-2"></i>Login</a>
+    <a @click="activeTab = 'Register'" class="loginMenu nav-item nav-link" href="#"><i class="bi bi-info-circle-fill me-2"></i>Register</a>
+</div> -->
+      
     </nav>
+    
 
     <home v-if="activeTab === 'Home'"/>
+  
 
     <div v-if="activeTab === 'Something'">
       Something
     </div>
 
-    <div v-if="activeTab === 'About'">
-      About
-    </div>
+    <!-- <Login v-if="activeTab === 'Login'"/>
+    
+    <Register v-if="activeTab === 'Register'"/> -->
+
+    <About v-if="activeTab === 'About'"/>
+
 
     <footer class="footer bg-dark text-white py-2">
       <div class="container">
@@ -58,6 +73,10 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 </style>
