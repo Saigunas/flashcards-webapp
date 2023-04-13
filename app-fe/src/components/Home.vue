@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from "vue";
-  import Login from "./Login.vue"
-  import Register from "./Register.vue"
+  // import Login from "./Login.vue"
+  // import Register from "./Register.vue"
 
 </script>
 
