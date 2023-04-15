@@ -42,7 +42,7 @@
             <button type="button" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
             <p class="small fw-bold mt-2 pt-1 mb-0">Have an account already?
-                <router-link to="/Login" class="link-danger">Take me to the Login page!</router-link></p>
+                <a to="/Login" class="link-danger">Take me to the Login page!</a></p>
           </div>
         </form>
       </div>
