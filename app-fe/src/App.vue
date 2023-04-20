@@ -22,7 +22,7 @@
     <div id="app-body">
       <router-view />
     </div>
-    <footer class="footer bg-dark text-white py-2" style="position: fixed; bottom: 0; width: 100%;">
+    <footer class="footer bg-dark text-white py-2 my-0" style="position: fixed; bottom: 0; width: 100%;">
       <div class="container">
         <div class="row">
           <div class="col-md-6 d-flex align-items-center gap-2">
@@ -43,6 +43,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: 100%;
 }
 </style>

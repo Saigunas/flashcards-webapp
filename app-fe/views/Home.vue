@@ -78,7 +78,7 @@
 
   <div class="container my-5">
   <div class="row justify-content-center">
-      <h2 class="text-center font-weight-bold mb-4" style="letter-spacing: 2px; text-transform: uppercase; text-shadow: 1px 1px #000;">Feedback from flashcard appusers!</h2>
+      <h2 class="text-center font-weight-bold mb-4" style="letter-spacing: 2px; text-transform: uppercase; text-shadow: 1px 1px #000;">Feedback from flashcard app users!</h2>
   </div>
   </div>
   <section class="cards-wrapper">
@@ -122,7 +122,6 @@
 </template>
 
 <style>
-
 .bordered {
   border: 10px solid #eaeaea;
   border-radius: 20px;
@@ -174,16 +173,6 @@
   transition: all 0.3s ease;
 
 }
-
-.card-text:hover{
-  background-color: #f8f9fa;
-  border: 2px solid #ced4da;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
-
-  box-shadow: 0px 0px 0px 20px #f9f9f9;
-}
-
 :root {
   --color: #3c3163;
   --transition-time: 0.5s;
