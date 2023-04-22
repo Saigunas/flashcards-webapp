@@ -5,28 +5,46 @@
       <h2 class="text-light">Your flashcard sets!</h2>
         <router-link class="btn btn-success" :to="{name: 'AddFlashcardSet'}"> <i class="bi bi-plus"></i> Add a Flashcard</router-link>
     </div>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card bg-white text-dark">
-            <div class="card-body">
-              <h5 class="card-title text-dark">Animals</h5>
-              <p class="card-text text-dark">Click on this set, to start learning!</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-outline-info">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div v-for="(set, index) in sets" :key="index" class="col">
+      <div class="card bg-white text-dark">
+        <div class="card-body">
+          <h5 class="card-title text-dark">{{ set.title }}</h5>
+          <p class="card-text text-dark">{{ set.description }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="button" class="btn btn-outline-info">
                   <i class="bi bi-pencil-square"></i> Edit
                 </button>
-                <button type="button" class="btn btn-outline-danger">
-                  <i class="bi bi-trash"></i> Delete
-                </button>
-              </div>
-            </div>
+            <button type="button" class="btn btn-outline-danger" @click="deleteSet(index)">
+              <i class="bi bi-trash"></i> Delete
+            </button>
           </div>
         </div>
-       
       </div>
     </div>
   </div>
+    </div>
+  </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      sets: [
+        { title: 'Animals', description: 'Click on this set to start learning!' },
+        { title: 'History', description: 'Click on this set to start learning!' },
+        { title: 'Cars', description: 'Click on this set to start learning!' }
+      ]
+    }
+  },
+  methods: {
+    deleteSet(index) {
+      this.sets.splice(index, 1);
+    }
+  }
+}
+</script>
 
 <style>
 .ag-format-container {
