@@ -3,7 +3,7 @@
     <div class="container my-5">
       <div class="d-flex justify-content-between align-items-center mb-4">
       <h2 class="text-light">Your flashcard sets!</h2>
-        <router-link class="btn btn-success" :to="{name: 'Login'}"> <i class="bi bi-plus"></i> Add a Flashcard</router-link>
+        <router-link class="btn btn-success" :to="{name: 'AddFlashcardSet'}"> <i class="bi bi-plus"></i> Add a Flashcard</router-link>
     </div>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">

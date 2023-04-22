@@ -45,4 +45,7 @@
   justify-content: space-between;
   min-height: 100%;
 }
+footer{
+  opacity: 0.7
+}
 </style>

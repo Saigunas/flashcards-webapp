@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Flashcards from '../views/Flashcards.vue'
 import Cards from '../views/Cards.vue'
+import AddFlashcardSet from '../views/AddFlashcardSet.vue'
 
 
 const routes = [{
@@ -40,6 +41,11 @@ const routes = [{
         path: '/cards',
         name: 'Cards',
         component: Cards
+    },
+    {
+        path: '/addflashcardset',
+        name: 'AddFlashcardSet',
+        component: AddFlashcardSet
     },
 ]
 
