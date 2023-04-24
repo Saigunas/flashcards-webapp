@@ -1,4 +1,4 @@
-package com.ku.flashcardsapi.Models;
+package com.ku.flashcardsapi.Model;
 
 import jakarta.persistence.*;
 
