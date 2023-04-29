@@ -4,7 +4,7 @@ import com.ku.flashcardsapi.DTO.UserDto;
 import com.ku.flashcardsapi.Exception.ResourceNotFoundException;
 import com.ku.flashcardsapi.Mapper.UserMapper;
 import com.ku.flashcardsapi.Model.User;
-import com.ku.flashcardsapi.Repo.UserRepo;
+import com.ku.flashcardsapi.Repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class UserService {
 
     @Autowired
-    private UserRepo userRepository;
+    private UserRepository userRepository;
 
     public List<UserDto> getAllUsers() {
         List<User> users = userRepository.findAll();
