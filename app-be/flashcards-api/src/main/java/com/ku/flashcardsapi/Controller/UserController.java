@@ -1,20 +1,38 @@
 package com.ku.flashcardsapi.Controller;
 
-import com.ku.flashcardsapi.DTO.UserDto;
 import com.ku.flashcardsapi.Service.UserService;
+import com.ku.flashcardsapi.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private JwtTokenUtil tokenUtil;
 
+    @GetMapping("/id")
+    public Map<String, Object> getUserName(HttpServletRequest request) {
+        String userId = tokenUtil.getUserIdFromToken(request);
+
+        Map<String, Object> userMap = new HashMap<>();
+        userMap.put("id", userId);
+        userMap.put("error", false);
+        return userMap;
+    }
+
+    /*
     @GetMapping("/users")
     public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
@@ -43,4 +61,6 @@ public class UserController {
         userService.deleteUser(userId);
         return ResponseEntity.noContent().build();
     }
+
+     */
 }
