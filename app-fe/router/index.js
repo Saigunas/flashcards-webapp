@@ -3,7 +3,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Flashcards from '../views/Flashcards.vue'
-// import LearnFlashcard from '../views/LearnFlashcard.vue'
+import LearnFlashcard from '../views/LearnFlashcard.vue'
 import AddFlashcardSet from '../views/AddFlashcardSet.vue'
 // import EditFlashcardSet from '../views/EditFlashcardSet.vue'
 // import FinishFlashcard from '../views/FinishFlashcard.vue'
@@ -29,11 +29,11 @@ const routes = [{
         name: 'Flashcards',
         component: Flashcards
     },
-    // {
-    //     path: '/learnFlashcard',
-    //     name: 'LearnFlashcard',
-    //     component: LearnFlashcard
-    // },
+    {
+        path: '/learnFlashcard',
+        name: 'LearnFlashcard',
+        component: LearnFlashcard
+    },
     {
         path: '/addflashcardset',
         name: 'AddFlashcardSet',
