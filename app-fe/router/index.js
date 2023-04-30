@@ -6,7 +6,7 @@ import Flashcards from '../views/Flashcards.vue'
 import LearnFlashcard from '../views/LearnFlashcard.vue'
 import AddFlashcardSet from '../views/AddFlashcardSet.vue'
 // import EditFlashcardSet from '../views/EditFlashcardSet.vue'
-// import FinishFlashcard from '../views/FinishFlashcard.vue'
+import FinishFlashcard from '../views/FinishFlashcard.vue'
 
 
 const routes = [{
@@ -39,15 +39,15 @@ const routes = [{
         name: 'AddFlashcardSet',
         component: AddFlashcardSet
     },
-    // {
-    //     path: '/finishedflashcard',
-    //     name: 'FinishFlashcard',
-    //     component: FinishFlashcard,
-    //     props: (route) => ({
-    //         correctAnswers: parseInt(route.query.correctAnswers),
-    //         incorrectAnswers: parseInt(route.query.incorrectAnswers),
-    //     }),
-    // },
+    {
+        path: '/finishedflashcard',
+        name: 'FinishFlashcard',
+        component: FinishFlashcard,
+        props: (route) => ({
+            correctAnswers: parseInt(route.query.correctAnswers),
+            incorrectAnswers: parseInt(route.query.incorrectAnswers),
+        }),
+    },
     // {
     //     path: '/edit',
     //     name: 'edit',
