@@ -5,7 +5,7 @@ import Register from '../views/Register.vue'
 import Flashcards from '../views/Flashcards.vue'
 import LearnFlashcard from '../views/LearnFlashcard.vue'
 import AddFlashcardSet from '../views/AddFlashcardSet.vue'
-// import EditFlashcardSet from '../views/EditFlashcardSet.vue'
+import EditFlashcardSet from '../views/EditFlashcardSet.vue'
 import FinishFlashcard from '../views/FinishFlashcard.vue'
 
 
@@ -48,11 +48,11 @@ const routes = [{
             incorrectAnswers: parseInt(route.query.incorrectAnswers),
         }),
     },
-    // {
-    //     path: '/edit',
-    //     name: 'edit',
-    //     component: EditFlashcardSet
-    // },
+    {
+        path: '/edit',
+        name: 'edit',
+        component: EditFlashcardSet
+    },
 ]
 
 const router = createRouter({
