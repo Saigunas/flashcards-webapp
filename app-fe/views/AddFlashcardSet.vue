@@ -1,4 +1,5 @@
 <template>
+  <div class="background-container">
     <div class="add-flashcard-set-container">
       <div class="add-flashcard-set-card">
         <h2 class="text-center mb-4">Create a new flashcard set</h2>
@@ -43,10 +44,11 @@
         </div>       
     
         <div class="d-grid gap-2 mt-4 mx-auto">
-            <button class="btn btn-primary btn-create" type="button">Create</button>
+            <button class="btn btn-primary btn-create" type="button" :disabled="disableCreateButton">Create</button>
             </div>
         </div>
     </div>
+  </div>
   </template>
   
   <script>
@@ -63,7 +65,12 @@
       removeFlashcard(index) {
         this.flashcards.splice(index, 1);
       }
-    }
+    },
+    computed: {
+  disableCreateButton() {
+    return this.flashcards.length === 0
+  }
+},
   };
   </script>
   <style>
@@ -142,6 +149,8 @@
   display: flex;
   justify-content: center;
 }
-
+.background-container{
+  height: 800px;
+}
   </style>
   

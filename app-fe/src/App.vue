@@ -10,7 +10,6 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link class="nav-item nav-link active" :to="{name: 'Home'}"><i class="bi bi-house-door-fill me-2"></i>Home</router-link>
-          <router-link class="nav-item nav-link active" :to="{name: 'About'}"><i class="bi bi-info-circle-fill me-2"></i>About</router-link>
           <router-link class="nav-item nav-link active" :to="{name: 'Flashcards'}"><i class="bi bi-bar-chart-line-fill me-2"></i>Flashcards</router-link>
         </div>
       </div>
@@ -46,6 +45,6 @@
   min-height: 100%;
 }
 footer{
-  opacity: 0.7
+  opacity: 0.7;
 }
 </style>

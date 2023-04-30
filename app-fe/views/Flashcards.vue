@@ -1,5 +1,5 @@
 <template>
-  <div class="ag-format-container bg-dark">
+  <div class="background-container bg-con bg-dark">
     <div class="container my-5">
       <div class="d-flex justify-content-between align-items-center mb-4">
       <h2 class="text-light">Your flashcard sets!</h2>
@@ -12,13 +12,16 @@
           <h5 class="card-title text-dark">{{ set.title }}</h5>
           <p class="card-text text-dark">{{ set.description }}</p>
           <div class="d-flex justify-content-between align-items-center">
-            <button type="button" class="btn btn-outline-info">
-                  <i class="bi bi-pencil-square"></i> Edit
-                </button>
-            <button type="button" class="btn btn-outline-danger" @click="deleteSet(index)">
-              <i class="bi bi-trash"></i> Delete
-            </button>
-          </div>
+          <router-link to="edit" class="btn btn-outline-info mx-2">
+            <i class="bi bi-pencil-square"></i> Edit
+          </router-link>
+          <router-link to="LearnFlashcard" class="btn btn-outline-warning mx-2">
+            <i class="bi bi-lightbulb"></i> Learn
+          </router-link>
+          <button type="button" class="btn btn-outline-danger mx-2" @click="deleteSet(index)">
+            <i class="bi bi-trash"></i> Delete
+          </button>
+        </div>
         </div>
       </div>
     </div>
@@ -34,7 +37,7 @@ export default {
       sets: [
         { title: 'Animals', description: 'Click on this set to start learning!' },
         { title: 'History', description: 'Click on this set to start learning!' },
-        { title: 'Cars', description: 'Click on this set to start learning!' }
+
       ]
     }
   },

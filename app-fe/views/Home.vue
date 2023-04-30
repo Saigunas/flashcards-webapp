@@ -76,10 +76,8 @@
   </div>
   </div>
 
-  <div class="container my-5">
   <div class="row justify-content-center">
       <h2 class="text-center font-weight-bold mb-4" style="letter-spacing: 2px; text-transform: uppercase; text-shadow: 1px 1px #000;">Feedback from flashcard app users!</h2>
-  </div>
   </div>
   <section class="cards-wrapper">
   <div class="card-grid-space">
@@ -93,7 +91,7 @@
   <div class="card-grid-space">
     <a class="card" href="#" style="--bg-img: url('https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=80')">
       <div>
-        <h1>"One of the best flashcard sites that I've found, Setting up everything is so easy and user-friendly!"</h1>
+        <h1>"One of the best flashcard sites that I've found, Setting up everything is easy and user-friendly!"</h1>
         <p>Alice McCollaugh from Cambridge, UK</p>
       </div>
     </a>
@@ -193,10 +191,6 @@ body {
   background: #fafafa;
 }
 
-a {
-  color: inherit;
-}
-
 .cards-wrapper {
   display: grid;
   justify-content: center;
@@ -205,11 +199,11 @@ a {
   grid-gap: 4rem;
   padding: 4rem;
   margin: 0 auto;
-  width: max-content;
+  width: 100%;
 }
 
 .card {
-  font-family: 'Heebo';
+  font-family:cursive;
   --bg-filter-opacity: 0.2;
   background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
   height: 40em;
@@ -227,6 +221,7 @@ a {
   overflow: hidden;
   border: 10px solid #ccc;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .card h1 {
@@ -250,6 +245,10 @@ a {
   padding: 1em;
   line-height: 1em;
   opacity: .4;
+}
+
+.card:hover{
+  color: white;
 }
 
 .card:before, .card:after {
