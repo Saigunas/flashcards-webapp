@@ -24,7 +24,7 @@ public class UserController {
 
     @GetMapping("/id")
     public Map<String, Object> getUserName(HttpServletRequest request) {
-        String userId = tokenUtil.getUserIdFromToken(request);
+        Long userId = tokenUtil.getUserIdFromToken(request);
 
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("id", userId);

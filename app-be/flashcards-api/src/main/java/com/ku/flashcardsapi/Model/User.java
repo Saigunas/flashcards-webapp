@@ -1,10 +1,10 @@
 package com.ku.flashcardsapi.Model;
 
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -16,15 +16,23 @@ public class User {
     }
 
     @Column(unique = true)
+    @NotNull
     private String userName;
     @Column
+    @NotNull
     private String firstName;
     @Column
+    @NotNull
     private String lastName;
     @Column
+    @NotNull
     private String password;
     @Column
     private String role;
+
+    // One-to-many relationship with FlashcardSet
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FlashcardSet> flascardSets = new ArrayList<>();
 
     public User(String userName, String password, String role) {
         this.userName = userName;

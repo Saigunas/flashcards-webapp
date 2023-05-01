@@ -41,7 +41,7 @@ public class JwtTokenUtil implements Serializable {
         return claims.get("userId", String.class);
     }
 
-    public String getUserIdFromToken(HttpServletRequest request) {
+    public Long getUserIdFromToken(HttpServletRequest request) {
         String token = request.getHeader("Authorization").replace("Bearer ", "");
 
         Claims claims = Jwts.parser()
@@ -49,7 +49,7 @@ public class JwtTokenUtil implements Serializable {
                 .parseClaimsJws(token)
                 .getBody();
 
-        return claims.get("userId", String.class);
+        return Long.parseLong(claims.get("userId", String.class));
     }
 
     public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
