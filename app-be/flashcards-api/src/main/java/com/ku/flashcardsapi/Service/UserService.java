@@ -24,10 +24,15 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    public UserDto getUserById(Long userId) {
+    public UserDto getUserDtoById(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id " + userId));
         return UserMapper.INSTANCE.userToUserDto(user);
+    }
+
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id " + userId));
     }
 
     public UserDto createUser(UserDto userDto) {
