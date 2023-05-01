@@ -1,86 +1,94 @@
 <template>
-    <div class="background-container bg-dark">
-      <div class="maincontainer">
-        <transition name="slide">
-          <div class="thecard" :class="{ 'is-flipped': flipped }">
-            <div class="front" @click="flipCard">
-              <p>{{ cards[currentCardIndex].front }}</p>
-            </div>
-            <div class="back" @click="flipCard">
-              <p>{{ cards[currentCardIndex].back }}</p>
-            </div>
+  <div class="background-container bg-dark">
+    <div class="maincontainer">
+      <transition name="slide">
+        <div class="thecard" :class="{ 'is-flipped': flipped }">
+          <div class="front" @click="flipCard">
+            <p>{{ cards[currentCardIndex].front }}</p>
           </div>
-        </transition>
-        <div class="pagination">
-          <button class="flashcard-btn circle-danger mt-2" style="vertical-align: middle;" @click="markAsIncorrect"><i class="text-danger bi bi-x"></i></button>
-          <span class="flashcardset-amount">{{ currentCardIndex + 1 }}/{{ cards.length }}</span>
-          <button class="circle-success mt-2" style="vertical-align: middle;" @click="markAsCorrect"><i class="text-success bi bi-check"></i> </button>
-        <template v-if="completed">
-            <router-link to="FinishFlashcard" :correct-answers="correctAnswers" :incorrect-answers="incorrectAnswers">
-            <button class="mt-2">Finish</button>
-            </router-link>
-        </template>
+          <div class="back" @click="flipCard">
+            <p>{{ cards[currentCardIndex].back }}</p>
+          </div>
         </div>
-        <span class="input-line"></span>
+      </transition>
+      <div class="pagination">
+        <button class="flashcard-btn circle-danger mt-2" style="vertical-align: middle;" @click="markAsIncorrect"><i class="text-danger bi bi-x"></i></button>
+        <span class="flashcardset-amount">{{ currentCardIndex + 1 }}/{{ cards.length }}</span>
+        <button class=" flashcard-btn circle-success mt-2" style="vertical-align: middle;" @click="markAsCorrect"><i class="text-success bi bi-check"></i> </button>
+        <template v-if="completed">
+          <router-link :to="{ name: 'FinishFlashcard', query: { correctAnswers, incorrectAnswers }}" :cards="cards">
+            <button class="mt-2">Finish</button>
+          </router-link>
+        </template>
       </div>
+      <span class="input-line"></span>
     </div>
-  </template>
-  <script>
-  export default {
-    data() {
-      return {
-        completed: false,
-        flipped: false,
-        cards: [
-          { front: "british", back: "billie eilish" },
-          { front: "overrated", back: "hot take" },
-          { front: "history", back: "ww2" },
-          { front: "anime", back: "good" }
-        ],
-        currentCardIndex: 0,
-        correctAnswers: 0,
-        incorrectAnswers: 0
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      completed: false,
+      flipped: false,
+      cards: [
+        { front: "british", back: "billie eilish" },
+        { front: "overrated", back: "hot take" },
+        { front: "history", back: "ww2" },
+        { front: "anime", back: "good" },
+      ],
+      currentCardIndex: 0,
+      correctAnswers: 0,
+      incorrectAnswers: 0,
+      cardObjects: [],
+    };
+  },
+  methods: {
+    markAsCorrect() {
+      const card = {
+        Definition: this.cards[this.currentCardIndex].front,
+        Term: this.cards[this.currentCardIndex].back,
+        knows_answer: true,
       };
+      this.cardObjects.push(card);
+      this.correctAnswers++;
+      this.goToNextCard();
     },
-    methods: {
-      markAsCorrect() {
-        this.correctAnswers++;
-        this.goToNextCard();
-      },
-      markAsIncorrect() {
-        this.incorrectAnswers++;
-        this.goToNextCard();
-      },
-      goToNextCard() {
-  if (this.currentCardIndex < this.cards.length - 1) {
-    this.currentCardIndex++;
-    this.flipped = false;
-  } else {
-    this.completed = true;
-    let correctAnswers = 0;
-    let incorrectAnswers = 0;
-    for (let i = 0; i < this.cards.length; i++) {
-      if (this.cards[i].correct) {
-        correctAnswers++;
+    markAsIncorrect() {
+      const card = {
+        Definition: this.cards[this.currentCardIndex].front,
+        Term: this.cards[this.currentCardIndex].back,
+        knows_answer: false,
+      };
+      this.cardObjects.push(card);
+      this.incorrectAnswers++;
+      this.goToNextCard();
+    },
+    goToNextCard() {
+      if (this.currentCardIndex < this.cards.length - 1) {
+        this.currentCardIndex++;
+        this.flipped = false;
       } else {
-        incorrectAnswers++;
-      }
-    }
-    this.$router.push({
-      name: "FinishFlashcard",
-      query: {
-        correctAnswers: correctAnswers,
-        incorrectAnswers: incorrectAnswers
-      }
-    });
-  }
+        this.completed = true;
+        this.$router.push({
+        name : 'FinishFlashcard',
+query: {
+correctAnswers: this.correctAnswers,
+incorrectAnswers: this.incorrectAnswers,
 },
-      flipCard() {
-        this.flipped = !this.flipped;
-      }
-    }
-  };
-  </script>
+params: {
+cards: this.cardObjects,
+},
+});
+}
+},
+flipCard() {
+this.flipped = !this.flipped;
+},
+},
+};
+</script>
   
   <style>
 .circle-success:before{

@@ -16,7 +16,6 @@
       <div class="card-body">
         <h3 class="card-title mb-4">Why Flashcards?</h3>
         <p class="card-text text-large">Studying is an essential part of any learning process, but not all study methods are created equal. Flashcards have been shown to be a highly effective tool for learning and memorizing information. Flashcards enable students to actively engage with the material and test their understanding in a way that traditional studying methods like re-reading notes help out as effectively as reading notes from our phones.</p>
-        <router-link class="btn btn-primary btn-lg btn-animated" :to="{name: 'Register'}">Get Started!</router-link>
       </div>
     </div>
   </div>
@@ -111,7 +110,7 @@
         <h2 class="text-center font-weight-bold mb-4" style="letter-spacing: 2px; text-transform: uppercase; text-shadow: 1px 1px #000;">Ready to Get Started?</h2>
         <p class="text-center mb-5">Sign up now and join the millions of students who have revolutionized their studying with our flashcard app!</p>
         <div class="text-center">
-          <router-link class="btn btn-primary btn-lg btn-animated" :to="{name: 'Login'}">Sign up now!</router-link>
+          <router-link class="btn btn-primary btn-lg btn-animated" :to="{name: 'Register'}">Sign up now!</router-link>
         </div>
       </div>
     </div>
@@ -232,7 +231,7 @@ body {
 
 .card p {
   font-size: 0.75em;
-  font-family: 'Open Sans';
+  font-family: Arial, Helvetica, sans-serif;
   margin-top: 0.5em;
   line-height: 2em;
 }
