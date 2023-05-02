@@ -9,8 +9,6 @@
     "dependencies": {
         "bootstrap": "^5.2.3",
         "bootstrap-icons": "^1.10.4",
-        "chart.js": "^4.2.1",
-        "confetti-js": "^0.0.18",
         "core-js": "^3.8.3",
         "vue": "^3.2.13",
         "vue-router": "^4.1.6"

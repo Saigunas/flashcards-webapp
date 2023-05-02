@@ -7,6 +7,10 @@ import LearnFlashcard from '../views/LearnFlashcard.vue'
 import AddFlashcardSet from '../views/AddFlashcardSet.vue'
 import EditFlashcardSet from '../views/EditFlashcardSet.vue'
 import FinishFlashcard from '../views/FinishFlashcard.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import Flashcards from '../views/Flashcards.vue'
+import Cards from '../views/Cards.vue'
 
 
 const routes = [{
