@@ -34,6 +34,12 @@ public class FlashcardSetService {
                 .orElseThrow(() -> new ResourceNotFoundException("FlashcardSet not found with id " + id));
     }
 
+    public FlashcardSet getFlashcardSetById(Long id) {
+        return flashcardSetRepository.findById(id).stream()
+                .findFirst()
+                .orElseThrow(() -> new ResourceNotFoundException("FlashcardSet not found with id " + id));
+    }
+
     public FlashcardSetDto createFlashcardSet(FlashcardSetDto flashcardSetDto, Long userId) {
         User user = userService.getUserById(userId);
 
