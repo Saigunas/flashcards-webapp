@@ -1,124 +1,71 @@
-<script setup>
-  import { ref } from "vue";
-</script>
 <template>
- <div class="ag-format-container">
-  <div class="ag-courses_box"><ul><h2 v-for="(Flashcards, i) in Flashcards" :key="i">
-    <div class="ag-courses_item">
-      <a href="#" class="ag-courses-item_link">
-        <div class="ag-courses-item_bg">
+  <div class="background-container bg-con bg-dark">
+    <div class="container my-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-light">Your flashcard sets!</h2>
+        <router-link class="btn btn-success" :to="{name: 'AddFlashcardSet'}"> <i class="bi bi-plus"></i> Add a Flashcard Set</router-link>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div v-for="(set, index) in sets" :key="index" class="col">
+          <div class="card bg-white text-dark" @click="startLearning(index)">
+            <div class="card-body">
+              <h5 class="card-title text-dark">{{ set.title }}</h5>
+              <p class="card-text text-dark">{{ set.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <router-link to="edit" class="btn btn-outline-info mx-2">
+                  <i class="bi bi-pencil-square"></i> Edit
+                </router-link>
+                <router-link to="LearnFlashcard" class="btn btn-outline-warning mx-2">
+                  <i class="bi bi-lightbulb"></i> Learn
+                </router-link>
+                <button type="button" class="btn btn-outline-danger mx-2" @click="deleteSet(index)">
+                  <i class="bi bi-trash"></i> Delete
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="ag-courses-item_title">
-     {{ Flashcards }}
-        </div>
-      </a>
+      </div>
     </div>
- </h2></ul></div>
-</div>
+  </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      Flashcards: ['History', 'Eng','0'],
-    };
+      sets: [
+        { title: 'Animals', description: 'Click on this set to start learning!' },
+        { title: 'History', description: 'Click on this set to start learning!' },
+      ]
+    }
   },
-};
+  methods: {
+    deleteSet(index) {
+      this.sets.splice(index, 1);
+    },
+    startLearning(index) {
+      this.$router.push({ name: 'LearnFlashcard', params: { setIndex: index } });
+    }
+  }
+}
 </script>
+
 <style>
 .ag-format-container {
-  width: 1142px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
-  
 }
 
-template {
-  background-color: #000;
+.card {
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
-.ag-courses_box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  padding: 30px 0;
-}
-.ag-courses_item {
-  -ms-flex-preferred-size: calc(33.33333% - 30px);
-  flex-basis: calc(33.33333% - 30px);
 
-  margin: 0 95px 45px;
-  overflow: hidden;
+.card:hover {
+  transform: scale(1.05);
+}
 
-  border-radius: 28px;
-}
-.ag-courses-item_link {
-  display: block;
-  padding: 45px 400px;
-  background-color: #121212;
-
-  overflow: hidden;
-  text-align: center;
-  position: relative;
-}
-.ag-courses-item_link:hover,
-.ag-courses-item_link:hover .ag-courses-item_date {
-  text-decoration: none;
-  color: #FFF;
-}
-.ag-courses-item_link:hover .ag-courses-item_bg {
-  -webkit-transform: scale(10);
-  -ms-transform: scale(10);
-  transform: scale(10);
-}
-.ag-courses-item_title {
-  min-height: 87px;
-  margin: 0 0 25px;
-  overflow: hidden;
-  font-weight: bold;
-  font-size: 30px;
-  color: #FFF;
-
-  z-index: 2;
-  position: relative;
-}
-.ag-courses-item_date-box {
-  font-size: 18px;
-  color: #FFF;
-
-  z-index: 2;
-  position: relative;
-}
-.ag-courses-item_date {
-  font-weight: bold;
-  color: #f9b234;
-
-  -webkit-transition: color .5s ease;
-  -o-transition: color .5s ease;
-  transition: color .5s ease
-}
-.ag-courses-item_bg {
-  height: 128px;
-  width: 128px;
-  background-color: #f9b234;
-
-  z-index: 1;
-  position: absolute;
-  top: -75px;
-  right: -75px;
-
-  border-radius: 50%;
-
-  -webkit-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
-}
-.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
-  background-color: #4c49ea;
-}
 </style>
+

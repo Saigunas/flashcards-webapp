@@ -16,7 +16,6 @@
       <div class="card-body">
         <h3 class="card-title mb-4">Why Flashcards?</h3>
         <p class="card-text text-large">Studying is an essential part of any learning process, but not all study methods are created equal. Flashcards have been shown to be a highly effective tool for learning and memorizing information. Flashcards enable students to actively engage with the material and test their understanding in a way that traditional studying methods like re-reading notes help out as effectively as reading notes from our phones.</p>
-        <router-link class="btn btn-primary btn-lg btn-animated" :to="{name: 'Register'}">Get Started!</router-link>
       </div>
     </div>
   </div>
@@ -76,10 +75,8 @@
   </div>
   </div>
 
-  <div class="container my-5">
   <div class="row justify-content-center">
-      <h2 class="text-center font-weight-bold mb-4" style="letter-spacing: 2px; text-transform: uppercase; text-shadow: 1px 1px #000;">Feedback from flashcard appusers!</h2>
-  </div>
+      <h2 class="text-center font-weight-bold mb-4" style="letter-spacing: 2px; text-transform: uppercase; text-shadow: 1px 1px #000;">Feedback from flashcard app users!</h2>
   </div>
   <section class="cards-wrapper">
   <div class="card-grid-space">
@@ -93,7 +90,7 @@
   <div class="card-grid-space">
     <a class="card" href="#" style="--bg-img: url('https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=80')">
       <div>
-        <h1>"One of the best flashcard sites that I've found, Setting up everything is so easy and user-friendly!"</h1>
+        <h1>"One of the best flashcard sites that I've found, Setting up everything is easy and user-friendly!"</h1>
         <p>Alice McCollaugh from Cambridge, UK</p>
       </div>
     </a>
@@ -113,7 +110,7 @@
         <h2 class="text-center font-weight-bold mb-4" style="letter-spacing: 2px; text-transform: uppercase; text-shadow: 1px 1px #000;">Ready to Get Started?</h2>
         <p class="text-center mb-5">Sign up now and join the millions of students who have revolutionized their studying with our flashcard app!</p>
         <div class="text-center">
-          <router-link class="btn btn-primary btn-lg btn-animated" :to="{name: 'Login'}">Sign up now!</router-link>
+          <router-link class="btn btn-primary btn-lg btn-animated" :to="{name: 'Register'}">Sign up now!</router-link>
         </div>
       </div>
     </div>
@@ -122,7 +119,6 @@
 </template>
 
 <style>
-
 .bordered {
   border: 10px solid #eaeaea;
   border-radius: 20px;
@@ -174,16 +170,6 @@
   transition: all 0.3s ease;
 
 }
-
-.card-text:hover{
-  background-color: #f8f9fa;
-  border: 2px solid #ced4da;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
-
-  box-shadow: 0px 0px 0px 20px #f9f9f9;
-}
-
 :root {
   --color: #3c3163;
   --transition-time: 0.5s;
@@ -204,10 +190,6 @@ body {
   background: #fafafa;
 }
 
-a {
-  color: inherit;
-}
-
 .cards-wrapper {
   display: grid;
   justify-content: center;
@@ -216,11 +198,11 @@ a {
   grid-gap: 4rem;
   padding: 4rem;
   margin: 0 auto;
-  width: max-content;
+  width: 100%;
 }
 
 .card {
-  font-family: 'Heebo';
+  font-family:cursive;
   --bg-filter-opacity: 0.2;
   background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
   height: 40em;
@@ -238,6 +220,7 @@ a {
   overflow: hidden;
   border: 10px solid #ccc;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .card h1 {
@@ -248,7 +231,7 @@ a {
 
 .card p {
   font-size: 0.75em;
-  font-family: 'Open Sans';
+  font-family: Arial, Helvetica, sans-serif;
   margin-top: 0.5em;
   line-height: 2em;
 }
@@ -261,6 +244,10 @@ a {
   padding: 1em;
   line-height: 1em;
   opacity: .4;
+}
+
+.card:hover{
+  color: white;
 }
 
 .card:before, .card:after {
