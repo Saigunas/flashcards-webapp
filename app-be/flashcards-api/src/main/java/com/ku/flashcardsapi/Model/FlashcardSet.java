@@ -16,7 +16,7 @@ public class FlashcardSet {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column
+    @Column(length = 50)
     @NotNull
     private String name;
 

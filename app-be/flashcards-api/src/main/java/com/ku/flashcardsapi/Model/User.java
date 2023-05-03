@@ -14,20 +14,23 @@ public class User {
 
     public User() {
     }
-
-    @Column(unique = true)
+    @Column(unique = true, length = 50)
     @NotNull
     private String userName;
-    @Column
+
+    @Column(length = 50)
     @NotNull
     private String firstName;
-    @Column
+
+    @Column(length = 50)
     @NotNull
     private String lastName;
+
     @Column
     @NotNull
     private String password;
-    @Column
+
+    @Column(length = 20)
     private String role;
 
     // One-to-many relationship with FlashcardSet
