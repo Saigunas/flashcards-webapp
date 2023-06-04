@@ -19,6 +19,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/flashcardset")
+@CrossOrigin(origins= {"*"})
 public class FlashcardSetController {
 
     @Autowired

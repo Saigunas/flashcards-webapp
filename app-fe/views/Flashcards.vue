@@ -7,7 +7,7 @@
       </div>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div v-for="(set, index) in sets" :key="index" class="col">
-          <div class="card bg-white text-dark" @click="startLearning(index)">
+          <div class="card bg-white text-dark">
             <div class="card-body">
               <h5 class="card-title text-dark">{{ set.title }}</h5>
               <p class="card-text text-dark">{{ set.description }}</p>
@@ -31,15 +31,18 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  created(){
+    
+  },
+
   data() {
     return {
-      sets: [
-        { title: 'Animals', description: 'Click on this set to start learning!' },
-        { title: 'History', description: 'Click on this set to start learning!' },
-      ]
+   
     }
   },
+
   methods: {
     deleteSet(index) {
       this.sets.splice(index, 1);
