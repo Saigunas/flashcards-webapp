@@ -73,8 +73,9 @@
 },
   };
   </script>
-  <style>
   
+  
+  <style>
   .flashcard {
   display: flex;
   justify-content: center;

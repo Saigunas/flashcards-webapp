@@ -63,8 +63,15 @@ export default{
    userName: this.userName,
    password: this.password
 })
+.then(response => {
 this.$router.push('/flashcards');
-localStorage.setItem('token',required.data.token);
+ localStorage.setItem('token',required.data.token);
+ console.log('Logged in successfully');
+})
+.catch(error => {
+    console.error('Login failed:', error);
+});
+
 
 
     }
